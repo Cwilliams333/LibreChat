@@ -1,0 +1,12 @@
+# Force LF line endings for environment files to prevent Docker issues
+.env text eol=lf
+*.env text eol=lf
+.env.* text eol=lf
+
+# Force LF for shell scripts
+*.sh text eol=lf
+
+# Force LF for Docker files
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+docker-compose.*.yml text eol=lf
