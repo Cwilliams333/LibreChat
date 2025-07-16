@@ -133,7 +133,14 @@ function useTextToSpeechExternal({
   });
 
   const startMutation = (text: string, download: boolean) => {
-    const formData = createFormData(text, voice ?? '');
+    if (!voice) {
+      showToast({
+        message: localize('com_nav_no_voice_selected'),
+        status: 'error',
+      });
+      return;
+    }
+    const formData = createFormData(text, voice);
     setDownloadFile(download);
     processAudio(formData);
   };
